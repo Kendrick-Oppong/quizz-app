@@ -3,7 +3,7 @@ h1 {
 }
 
 p {
-  margin-top: 3rem; /* 48px*/
+  margin-top: 2rem; 
   color: var(--grey-navy);
   font-style: italic;
   font-size: 1.25rem; /* 20px*/

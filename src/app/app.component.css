@@ -2,7 +2,7 @@ header {
   display: flex;
   justify-content: space-between;
   margin-block: 5.18rem; /* 83px */
-  margin-inline: 8.75rem; /* 140px*/
+  margin-inline: 1.5rem; /* 24px*/
 }
 
 .toggle {
@@ -71,4 +71,16 @@ input:checked + .slider:before {
 .ellipse-white-2 {
   right: 0;
   bottom: 0;
+}
+
+@media screen and (min-width: 992px) {
+  header {
+    margin-inline: 8.75rem; /* 140px*/
+  }
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    margin-inline: 4rem; /* 64px*/
+  }
 }

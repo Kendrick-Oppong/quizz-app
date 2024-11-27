@@ -11,4 +11,5 @@ import { HomeComponent } from "./components/home/home.component";
 })
 export class AppComponent {
   title = 'quiz-app';
+  
 }
