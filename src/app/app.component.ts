@@ -12,7 +12,7 @@ import { QuizService } from './services/quiz.service';
 })
 export class AppComponent implements OnInit {
   title = 'quiz-app';
-  selectedCategory: string = '';
+  selectedCategory = '';
   quizzes: Quiz[] = [];
   quizService: QuizService = inject(QuizService);
 
