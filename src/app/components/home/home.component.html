@@ -1,0 +1,19 @@
+<main>
+  <div>
+    <h1>
+      Welcome to the <br />
+      <span>Frontend Quiz!</span>
+    </h1>
+    <p>Pick a subject to get started.</p>
+  </div>
+
+  <ul>
+    @for (category of categories; track category.title) {
+
+    <div>
+      <img [src]="category.img" alt="" />
+      <h3>{{ category.title }}</h3>
+    </div>
+    }
+  </ul>
+</main>
