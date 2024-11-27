@@ -10,8 +10,8 @@
   <ul>
     @for (category of categories; track category.title) {
 
-    <div>
-      <img [src]="category.img" alt="" />
+    <div (click)="onCategorySelect(category.title)">
+      <img [src]="category.img" [alt]="category.img" />
       <h3>{{ category.title }}</h3>
     </div>
     }

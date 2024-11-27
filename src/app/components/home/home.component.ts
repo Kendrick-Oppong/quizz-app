@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +8,16 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  categories = [
+  @Output() categorySelected = new EventEmitter<string>();
+
+  readonly categories = [
     { img: '/assets/images/icon-html.svg', title: 'HTML' },
     { img: '/assets/images/icon-css.svg', title: 'CSS' },
-    { img: '/assets/images/icon-js.svg', title: 'Javascript' },
+    { img: '/assets/images/icon-js.svg', title: 'JavaScript' },
     { img: '/assets/images/icon-accessibility.svg', title: 'Accessibility' },
   ];
+
+  onCategorySelect(categoryTitle: string): void {
+    this.categorySelected.emit(categoryTitle);
+  }
 }
