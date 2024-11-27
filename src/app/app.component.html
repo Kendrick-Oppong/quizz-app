@@ -31,16 +31,16 @@
   @switch (selectedCategory) { 
     @case("HTML"){
       <app-html
-    [filteredCategoryQuizzes]="filteredCategoryQuizzes"
+    [quizzes]="filteredCategoryQuizzes"
   />
   } @case ("CSS") {
-    <app-css   [filteredCategoryQuizzes]="filteredCategoryQuizzes" />
+    <app-css   [quizzes]="filteredCategoryQuizzes" />
   }
   @case ("JavaScript") {
-    <app-javascript  [filteredCategoryQuizzes]="filteredCategoryQuizzes"/>
+    <app-javascript  [quizzes]="filteredCategoryQuizzes"/>
   }
     @case ("Accessibility") {
-    <app-accessibility  [filteredCategoryQuizzes]="filteredCategoryQuizzes" />
+    <app-accessibility  [quizzes]="filteredCategoryQuizzes" />
   }
   @default {
     <app-home (categorySelected)="onCategorySelect($event)" />

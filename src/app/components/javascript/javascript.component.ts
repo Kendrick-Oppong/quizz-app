@@ -9,5 +9,5 @@ import { Quiz } from '../../interfaces/quiz';
   styleUrl: './javascript.component.css',
 })
 export class JavascriptComponent {
-  @Input({ required: true }) filteredCategoryQuizzes: Quiz[] = [];
+  @Input({ required: true }) quizzes: Quiz[] = [];
 }

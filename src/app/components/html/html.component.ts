@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Quiz } from '../../interfaces/quiz';
 
 @Component({
@@ -8,7 +8,6 @@ import { Quiz } from '../../interfaces/quiz';
   templateUrl: './html.component.html',
   styleUrl: './html.component.css',
 })
-  
 export class HtmlComponent {
-  @Input({ required: true }) filteredCategoryQuizzes: Quiz[] = [];
+  @Input({ required: true }) quizzes: Quiz[] = [];
 }

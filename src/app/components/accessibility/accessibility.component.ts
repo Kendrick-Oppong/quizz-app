@@ -9,5 +9,5 @@ import { Quiz } from '../../interfaces/quiz';
   styleUrl: './accessibility.component.css',
 })
 export class AccessibilityComponent {
-  @Input({ required: true }) filteredCategoryQuizzes: Quiz[] = [];
+  @Input({ required: true }) quizzes: Quiz[] = [];
 }
