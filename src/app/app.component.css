@@ -56,3 +56,19 @@ header {
 input:checked + .slider:before {
   transform: translateX(20px);
 }
+
+.ellipse-white-1,
+.ellipse-white-2 {
+  position: absolute;
+  z-index: -1;
+}
+
+.ellipse-white-1 {
+  left: 0;
+  top: 0;
+}
+
+.ellipse-white-2 {
+  right: 0;
+  bottom: 0;
+}
