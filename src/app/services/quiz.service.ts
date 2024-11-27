@@ -7,7 +7,6 @@ import { Quiz } from '../interfaces/quiz';
 })
 export class QuizService {
   private quizzes: Quiz[] = quizData.quizzes;
-  constructor() {}
 
   getQuizzes() {
     return this.quizzes;

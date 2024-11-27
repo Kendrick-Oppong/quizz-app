@@ -28,5 +28,22 @@
     />
   </div>
 
-  <app-home (categorySelected)="onCategorySelect($event)" />
+  @switch (selectedCategory) { 
+    @case("HTML"){
+      <app-html
+    [filteredCategoryQuizzes]="filteredCategoryQuizzes"
+  />
+  } @case ("CSS") {
+    <app-css   [filteredCategoryQuizzes]="filteredCategoryQuizzes" />
+  }
+  @case ("JavaScript") {
+    <app-javascript  [filteredCategoryQuizzes]="filteredCategoryQuizzes"/>
+  }
+    @case ("Accessibility") {
+    <app-accessibility  [filteredCategoryQuizzes]="filteredCategoryQuizzes" />
+  }
+  @default {
+    <app-home (categorySelected)="onCategorySelect($event)" />
+  } }
+
 </ng-container>
