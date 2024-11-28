@@ -2,21 +2,15 @@ import { Component, inject, OnInit } from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
 import { Quiz } from './interfaces/quiz';
 import { QuizService } from './services/quiz.service';
-import { HtmlComponent } from './components/html/html.component';
-import { JavascriptComponent } from './components/javascript/javascript.component';
-import { AccessibilityComponent } from './components/accessibility/accessibility.component';
-import { CssComponent } from './components/css/css.component';
+import { QuestionsComponent } from "./components/questions/questions.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    HomeComponent,
-    HtmlComponent,
-    JavascriptComponent,
-    AccessibilityComponent,
-    CssComponent,
-  ],
+    QuestionsComponent,
+    HomeComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
