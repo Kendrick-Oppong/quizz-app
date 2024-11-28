@@ -1,0 +1,71 @@
+<main>
+  <div class="aside-container">
+    <p class="question-number">
+      Question {{ questionIndex + 1 }} of
+      {{ quizzes[quizIndex].questions.length }}
+    </p>
+    <h1 class="question-title">{{ currentQuizQuestion().question }}</h1>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar-container">
+      <div
+        class="progress-bar"
+        [style.width.%]="
+          ((questionIndex + 1) / quizzes[quizIndex].questions.length) * 100
+        "
+      ></div>
+    </div>
+  </div>
+
+  <!-- Answer List -->
+  <ul class="question-list">
+    @for (option of currentQuizQuestion().options; track $index) {
+    <div
+      (click)="selectAnswer(option)"
+      [class.selected]="option === selectedAnswer && !answerSubmitted"
+      [class.correct-selected]="
+        answerSubmitted &&
+        option === currentQuizQuestion().answer &&
+        option === selectedAnswer
+      "
+      [class.correct-unselected]="
+        answerSubmitted &&
+        option === currentQuizQuestion().answer &&
+        option !== selectedAnswer
+      "
+      [class.wrong-selected]="
+        answerSubmitted &&
+        option === selectedAnswer &&
+        option !== currentQuizQuestion().answer
+      "
+    >
+      <p>{{ getLetter($index) }}</p>
+      <h3>{{ option }}</h3>
+
+      <!-- Show checkmark on correct answer (even if not selected) -->
+      @if (answerSubmitted && option === currentQuizQuestion().answer) {
+      <img class="checkmark" src="/checkmark-circle.svg" />
+      }
+
+      <!-- Show cross mark if the answer is submitted and incorrect -->
+      @if (answerSubmitted && option === selectedAnswer && option !==
+      currentQuizQuestion().answer) {
+      <img class="crossmark" src="/dismiss-circle.svg" />
+      }
+    </div>
+    } @if (answerSubmitted) {
+    <!-- Next Question Button -->
+    <button class="next-btn submit-btn" (click)="nextQuestion()">
+      Next Question
+    </button>
+    } @else {
+    <!-- Submit Button -->
+    <button class="submit-btn" (click)="submitAnswer()">Submit Answer</button>
+    } @if (showErrorMessage) {
+    <header class="prompt-message">
+      <img src="/dismiss-circle.svg" />
+      <h3>Please select an answer</h3>
+    </header>
+    }
+  </ul>
+</main>

@@ -1,0 +1,150 @@
+.question-title {
+  font-weight: 500;
+  font-size: 2.25rem;
+}
+
+.question-number {
+  margin-top: 2rem;
+  color: var(--grey-navy);
+  font-style: italic;
+  font-size: 1.25rem;
+  margin-bottom: 27px;
+}
+
+.progress-bar-container {
+  border-radius: 1.5rem;
+  background-color: var(--pure-white);
+  height: 1rem;
+}
+
+.progress-bar-container div {
+  margin: 6px;
+  background-color: var(--purple);
+  height: 10px;
+  width: 70%;
+  border-radius: 1.5rem;
+}
+
+span {
+  color: var(--dark-navy);
+  font-weight: 500;
+}
+
+ul {
+  width: 100%;
+}
+
+ul div,
+.submit-btn {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  background-color: var(--pure-white);
+  padding: 1.25rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+}
+
+div:not(:first-of-type) {
+  margin-top: 1.5rem;
+}
+
+ul h3 {
+  font-weight: 500;
+  font-size: 1.75rem;
+}
+
+ul div:hover p {
+  background-color: var(--light-purple);
+  color: var(--purple);
+}
+
+ul p {
+  color: var(--grey-navy);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 56px;
+  width: 56px;
+  margin-top: 0;
+  border-radius: 8px;
+  background-color: var(--light-grey);
+  font-weight: 500;
+  font-size: 1.75rem;
+}
+
+.submit-btn {
+  margin-top: 1.5rem;
+  height: 92px;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 500;
+  padding: 1.25rem;
+  color: var(--pure-white);
+  background-color: var(--purple);
+}
+
+.submit-btn:hover {
+  background-color: var(--btn-light-purple);
+}
+
+.selected {
+  border: 3px solid var(--purple);
+}
+
+.selected p {
+  background-color: var(--purple) !important;
+  color: var(--pure-white) !important;
+}
+
+.correct-selected {
+  border: 3px solid var(--green);
+}
+
+.correct-selected p {
+  background-color: var(--green);
+  color: var(--pure-white);
+}
+
+.correct-unselected {
+  border: none;
+}
+
+.correct-unselected p {
+  background-color: var(--light-grey);
+  color: var(--grey-navy);
+}
+
+.wrong-selected {
+  border: 3px solid var(--red);
+}
+
+.wrong-selected p {
+  background-color: var(--red) !important;
+  color: var(--pure-white) !important;
+}
+
+
+.checkmark {
+  color: var(--green);
+  font-size: 1.5rem;
+  margin-left: auto;
+}
+
+
+.crossmark {
+  color: var(--red);
+  font-size: 1.5rem;
+  margin-left: auto;
+}
+
+.prompt-message {
+  margin-top: 1rem;
+  color: var(--red);
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
