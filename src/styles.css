@@ -84,6 +84,8 @@ p {
   --light-grey: #f4f6fa;
   --green: #26d782;
   --navy: #626c7f;
+  --light-purple: #f6e7ff;
+  --btn-light-purple: #d394fa;
   --purple: #a729f5;
   --red: #ee5454;
   --pure-white: #ffffff;
@@ -100,24 +102,40 @@ body {
 }
 
 main {
-  margin-inline: 1.5rem; 
+  margin-inline: 1.5rem;
   margin-bottom: 2rem;
 }
 
-h1 {
-  font-size: 2.5rem; 
+.aside-container {
+  display: flex;
+  flex-direction: column;
 }
 
-p {
-  margin-bottom: 2.5rem; 
+.progress-bar-container {
+  margin-top: 20%;
+  display: flex;
+  align-items: center;
+  min-height: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+ul {
+  margin-top: 2.5rem;
 }
 
 @media screen and (min-width: 992px) {
   main {
-    margin-inline: 8.75rem; 
+    margin-inline: 8.75rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 4rem;
+  }
+
+  ul {
+    margin-top: auto;
   }
 
   p {
@@ -127,9 +145,10 @@ p {
 
 @media screen and (min-width: 768px) {
   h1 {
-    font-size: 4rem; 
+    font-size: 4rem;
   }
+
   main {
-    margin-inline: 4rem; 
+    margin-inline: 4rem;
   }
 }
