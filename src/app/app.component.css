@@ -1,0 +1,86 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-block: 5.18rem; /* 83px */
+  margin-inline: 1.5rem; /* 24px*/
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Style for the switch container */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 28px;
+}
+
+/* Hide the default checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Style for the slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--purple);
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+/* Style for the slider circle */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--pure-white);
+  transition: 0.4s;
+}
+
+/* When the checkbox is checked, move the slider */
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.ellipse-white-1,
+.ellipse-white-2 {
+  position: absolute;
+  z-index: -1;
+}
+
+.ellipse-white-1 {
+  left: 0;
+  top: 0;
+}
+
+.ellipse-white-2 {
+  right: 0;
+  bottom: 0;
+}
+
+@media screen and (min-width: 992px) {
+  header {
+    margin-inline: 8.75rem; 
+  }
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    margin-inline: 4rem;
+  }
+}
