@@ -1,0 +1,49 @@
+h1 {
+  font-weight: 100;
+}
+
+p {
+  color: var(--grey-navy);
+  font-size: 1.25rem;
+}
+
+span {
+  color: var(--dark-navy);
+  font-weight: 500;
+}
+
+section {
+  margin-block: 3rem;
+}
+
+
+section div {
+  text-align: center;
+  width: 100%;
+  margin-inline: auto;
+  background-color: var(--pure-white);
+  padding: 48px;
+  border-radius: 24px;
+}
+
+section .category-title {
+    display: flex;
+    justify-content: center;
+}
+
+section h1 {
+  font-size: 144px;
+  font-weight: 500;
+}
+
+button {
+  width: 100%;
+  border-radius: 24px;
+}
+
+@media screen and (min-width: 992px) {
+ section {
+    max-width: 80%;
+    margin-block: auto;
+  }
+}

@@ -3,13 +3,18 @@ import { HomeComponent } from './components/home/home.component';
 import { Quiz } from './interfaces/quiz';
 import { QuizService } from './services/quiz.service';
 import { QuestionsComponent } from './components/questions/questions.component';
-import { ScoreComponent } from "./components/score/score.component";
-import { CategoryIconComponent } from "./components/category-icon/category-icon.component";
+import { ScoreComponent } from './components/score/score.component';
+import { CategoryIconComponent } from './components/category-icon/category-icon.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [QuestionsComponent, HomeComponent, ScoreComponent, CategoryIconComponent],
+  imports: [
+    QuestionsComponent,
+    HomeComponent,
+    ScoreComponent,
+    CategoryIconComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -17,7 +22,8 @@ export class AppComponent implements OnInit {
   selectedCategory = '';
   quizzes: Quiz[] = [];
   filteredCategoryQuizzes: Quiz[] = [];
-  showScoreComponent = true;
+  showScoreComponent = false;
+  correctAnswersCount = 0;
   quizService: QuizService = inject(QuizService);
 
   ngOnInit(): void {
@@ -34,8 +40,17 @@ export class AppComponent implements OnInit {
     this.saveCategoryAndProgress();
   }
 
-  onQuizFinished(): void {
+  onQuizFinished(correctAnswers: number): void {
+    this.correctAnswersCount = correctAnswers;
     this.showScoreComponent = true;
+  }
+
+  onQuizReset(): void {
+    this.correctAnswersCount = 0;
+    this.selectedCategory = '';
+    this.showScoreComponent = false;
+    localStorage.removeItem('quizProgress');
+    localStorage.removeItem('appState');
   }
 
   private saveCategoryAndProgress(): void {

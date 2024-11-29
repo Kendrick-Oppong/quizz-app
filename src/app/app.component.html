@@ -32,26 +32,26 @@
   </div>
 
   <!-- quiz component -->
-  @if (showScoreComponent) { <app-score [selectedCategory]="selectedCategory"/>}@else { @switch (selectedCategory) {
+  @if (showScoreComponent) { <app-score [selectedCategory]="selectedCategory"  [correctAnswersCount]="correctAnswersCount" [quizzes]="quizzes" (quizReset)="onQuizReset()"/>}@else { @switch (selectedCategory) {
   @case("HTML"){
   <app-questions
     [quizzes]="filteredCategoryQuizzes"
-    (quizFinished)="onQuizFinished()"
+    (quizFinished)="onQuizFinished($event)"
   />
   } @case ("CSS") {
   <app-questions
     [quizzes]="filteredCategoryQuizzes"
-    (quizFinished)="onQuizFinished()"
+    (quizFinished)="onQuizFinished($event)"
   />
   } @case ("JavaScript") {
   <app-questions
     [quizzes]="filteredCategoryQuizzes"
-    (quizFinished)="onQuizFinished()"
+    (quizFinished)="onQuizFinished($event)"
   />
   } @case ("Accessibility") {
   <app-questions
     [quizzes]="filteredCategoryQuizzes"
-    (quizFinished)="onQuizFinished()"
+    (quizFinished)="onQuizFinished($event)"
   />
   } @default {
   <app-home (categorySelected)="onCategorySelect($event)" />

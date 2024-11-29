@@ -81,6 +81,7 @@ ul p {
   font-size: 1.75rem;
   font-weight: 500;
   padding: 1.25rem;
+  cursor: pointer;
   color: var(--pure-white);
   background-color: var(--purple);
 }
@@ -88,6 +89,7 @@ ul p {
 .submit-btn:hover {
   background-color: var(--btn-light-purple);
 }
+
 
 .selected {
   border: 4px solid var(--purple);

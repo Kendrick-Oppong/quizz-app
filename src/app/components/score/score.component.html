@@ -1,1 +1,20 @@
-<p>score works!</p>
+<main>
+  <div class="aside-container">
+    <h1>
+      Quiz completed
+      <br />
+      <span>You scored... </span>
+    </h1>
+  </div>
+
+  <section>
+    <div>
+      <div class="category-title">
+        <app-category-icon [selectedCategory]="selectedCategory" />
+      </div>
+      <h1>{{correctAnswersCount}}</h1>
+      <p>out of {{ quizzes[0].questions.length }}</p>
+    </div>
+    <button (click)="resetQuiz()" class="submit-btn">Play Again</button>
+  </section>
+</main>

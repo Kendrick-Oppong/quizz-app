@@ -9,7 +9,7 @@ import { Quiz } from '../../interfaces/quiz';
 })
 export class QuestionsComponent implements OnInit {
   @Input() quizzes: Quiz[] = [];
-  @Output() quizFinished = new EventEmitter<void>();
+  @Output() quizFinished = new EventEmitter<number>();
   quizIndex = 0;
   questionIndex = 0;
   selectedAnswer: string | null = null;
@@ -59,7 +59,7 @@ export class QuestionsComponent implements OnInit {
       this.questionIndex = 0;
     } else {
      
-      this.quizFinished.emit();
+      this.quizFinished.emit(this.correctAnswersCount);
     }
 
     this.resetQuestionState();

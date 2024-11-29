@@ -118,6 +118,23 @@ main {
   min-height: 1rem;
 }
 
+.submit-btn {
+  margin-top: 1.5rem;
+  height: 92px;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 500;
+  padding: 1.25rem;
+  cursor: pointer;
+  color: var(--pure-white);
+  background-color: var(--purple);
+}
+
+.submit-btn:hover {
+  background-color: var(--btn-light-purple);
+}
+
+
 h1 {
   font-size: 2.5rem;
 }
