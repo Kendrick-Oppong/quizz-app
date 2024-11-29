@@ -5,16 +5,6 @@ header {
   margin-inline: 1.5rem; 
 }
 
-.category-title-container {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
- h3 {
-  font-weight: 500;
-  font-size: 1.75rem;
-}
 
 .toggle {
   display: flex;
