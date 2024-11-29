@@ -15,9 +15,10 @@ export class QuestionsComponent implements OnInit {
   answerSubmitted = false;
   isCorrect: boolean | null = null;
   showErrorMessage = false;
+  correctAnswersCount = 0;
 
-  ngOnInit() {
-    this.loadQuizProgress();
+  ngOnInit(): void {
+    this.loadProgress();
   }
 
   currentQuizQuestion() {
@@ -26,11 +27,14 @@ export class QuestionsComponent implements OnInit {
 
   submitAnswer() {
     if (this.selectedAnswer) {
-      this.answerSubmitted = true;
       this.isCorrect =
         this.selectedAnswer === this.currentQuizQuestion().answer;
+      if (this.isCorrect) {
+        this.correctAnswersCount++;
+      }
+
+      this.answerSubmitted = true;
       this.showErrorMessage = false;
-      this.saveQuizProgress();
     } else {
       this.showErrorMessage = true;
     }
@@ -46,9 +50,8 @@ export class QuestionsComponent implements OnInit {
       this.quizIndex++;
       this.questionIndex = 0;
     }
-
     this.resetQuestionState();
-    this.saveQuizProgress();
+    this.saveProgress();
   }
 
   selectAnswer(answer: string) {
@@ -69,24 +72,22 @@ export class QuestionsComponent implements OnInit {
     this.showErrorMessage = false;
   }
 
-  private saveQuizProgress() {
-    const quizState = {
+  private saveProgress(): void {
+    const progress = {
+      correctAnswersCount: this.correctAnswersCount,
       quizIndex: this.quizIndex,
       questionIndex: this.questionIndex,
-      selectedAnswer: this.selectedAnswer,
-      answerSubmitted: this.answerSubmitted,
     };
-    localStorage.setItem('quizState', JSON.stringify(quizState));
+    localStorage.setItem('quizProgress', JSON.stringify(progress));
   }
 
-  private loadQuizProgress() {
-    const savedState = localStorage.getItem('quizState');
-    if (savedState) {
-      const quizState = JSON.parse(savedState);
-      this.quizIndex = quizState.quizIndex || 0;
-      this.questionIndex = quizState.questionIndex || 0;
-      this.selectedAnswer = quizState.selectedAnswer || null;
-      this.answerSubmitted = quizState.answerSubmitted || false;
+  private loadProgress(): void {
+    const savedProgress = localStorage.getItem('quizProgress');
+    if (savedProgress) {
+      const progress = JSON.parse(savedProgress);
+      this.correctAnswersCount = progress.correctAnswersCount || 0;
+      this.quizIndex = progress.quizIndex || 0;
+      this.questionIndex = progress.questionIndex || 0;
     }
   }
 }
