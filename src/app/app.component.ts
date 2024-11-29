@@ -4,11 +4,12 @@ import { Quiz } from './interfaces/quiz';
 import { QuizService } from './services/quiz.service';
 import { QuestionsComponent } from './components/questions/questions.component';
 import { ScoreComponent } from "./components/score/score.component";
+import { CategoryIconComponent } from "./components/category-icon/category-icon.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [QuestionsComponent, HomeComponent, ScoreComponent],
+  imports: [QuestionsComponent, HomeComponent, ScoreComponent, CategoryIconComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit {
   selectedCategory = '';
   quizzes: Quiz[] = [];
   filteredCategoryQuizzes: Quiz[] = [];
-  showScoreComponent = false;
+  showScoreComponent = true;
   quizService: QuizService = inject(QuizService);
 
   ngOnInit(): void {
