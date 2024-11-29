@@ -3,19 +3,20 @@ import { HomeComponent } from './components/home/home.component';
 import { Quiz } from './interfaces/quiz';
 import { QuizService } from './services/quiz.service';
 import { QuestionsComponent } from './components/questions/questions.component';
+import { ScoreComponent } from "./components/score/score.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [QuestionsComponent, HomeComponent],
+  imports: [QuestionsComponent, HomeComponent, ScoreComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-  
 export class AppComponent implements OnInit {
   selectedCategory = '';
   quizzes: Quiz[] = [];
   filteredCategoryQuizzes: Quiz[] = [];
+  showScoreComponent = false;
   quizService: QuizService = inject(QuizService);
 
   ngOnInit(): void {
@@ -29,7 +30,11 @@ export class AppComponent implements OnInit {
       (quiz) => quiz.title.toLowerCase() === categoryTitle.toLowerCase()
     );
 
-    this.saveCategoryAndProgress(); 
+    this.saveCategoryAndProgress();
+  }
+
+  onQuizFinished(): void {
+    this.showScoreComponent = true;
   }
 
   private saveCategoryAndProgress(): void {

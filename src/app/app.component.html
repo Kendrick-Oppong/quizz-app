@@ -1,19 +1,28 @@
 <header>
-<!-- dynamic rendering of category title -->
-   @switch (selectedCategory) { 
-    @case("HTML"){
-      <div class="category-title-container"><img src="/assets/images/icon-html.svg" alt=""><h3>{{selectedCategory}}</h3></div>
+  <!-- dynamic rendering of category title -->
+  @switch (selectedCategory) { @case("HTML"){
+  <div class="category-title-container">
+    <img src="/assets/images/icon-html.svg" alt="" />
+    <h3>{{ selectedCategory }}</h3>
+  </div>
   } @case ("CSS") {
- <div class="category-title-container"><img src="/assets/images/icon-css.svg" alt=""><h3>{{selectedCategory}}</h3></div>  }
-  @case ("JavaScript") {
-      <div class="category-title-container"><img src="/assets/images/icon-js.svg" alt=""><h3>{{selectedCategory}}</h3></div>
-  }
-    @case ("Accessibility") {
-       <div class="category-title-container"><img src="/assets/images/icon-accessibility.svg" alt=""><h3>{{selectedCategory}}</h3></div>
-    
-  }
-  }
- 
+  <div class="category-title-container">
+    <img src="/assets/images/icon-css.svg" alt="" />
+    <h3>{{ selectedCategory }}</h3>
+  </div>
+  } @case ("JavaScript") {
+  <div class="category-title-container">
+    <img src="/assets/images/icon-js.svg" alt="" />
+    <h3>{{ selectedCategory }}</h3>
+  </div>
+  } @case ("Accessibility") {
+  <div class="category-title-container">
+    <img src="/assets/images/icon-accessibility.svg" alt="" />
+    <h3>{{ selectedCategory }}</h3>
+  </div>
+
+  } }
+
   <div class="toggle">
     <img src="/sun.svg" alt="sun" />
     <div>
@@ -44,22 +53,28 @@
   </div>
 
   <!-- quiz component -->
-  @switch (selectedCategory) { 
-    @case("HTML"){
-      <app-questions
+  @if (showScoreComponent) { <app-score />}@else { @switch (selectedCategory) {
+  @case("HTML"){
+  <app-questions
     [quizzes]="filteredCategoryQuizzes"
+    (quizFinished)="onQuizFinished()"
   />
   } @case ("CSS") {
-     <app-questions  [quizzes]="filteredCategoryQuizzes" />
-  }
-  @case ("JavaScript") {
-      <app-questions  [quizzes]="filteredCategoryQuizzes" />
-  }
-    @case ("Accessibility") {
-    <app-questions  [quizzes]="filteredCategoryQuizzes" />
-  }
-  @default {
-    <app-home (categorySelected)="onCategorySelect($event)" />
-  } }
-
+  <app-questions
+    [quizzes]="filteredCategoryQuizzes"
+    (quizFinished)="onQuizFinished()"
+  />
+  } @case ("JavaScript") {
+  <app-questions
+    [quizzes]="filteredCategoryQuizzes"
+    (quizFinished)="onQuizFinished()"
+  />
+  } @case ("Accessibility") {
+  <app-questions
+    [quizzes]="filteredCategoryQuizzes"
+    (quizFinished)="onQuizFinished()"
+  />
+  } @default {
+  <app-home (categorySelected)="onCategorySelect($event)" />
+  } } }
 </ng-container>
