@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Quiz } from '../../interfaces/quiz';
 
 @Component({
@@ -9,6 +9,7 @@ import { Quiz } from '../../interfaces/quiz';
 })
 export class QuestionsComponent implements OnInit {
   @Input() quizzes: Quiz[] = [];
+  @Output() quizFinished = new EventEmitter<void>();
   quizIndex = 0;
   questionIndex = 0;
   selectedAnswer: string | null = null;
@@ -40,6 +41,13 @@ export class QuestionsComponent implements OnInit {
     }
   }
 
+  isLastQuestion(): boolean {
+    return (
+      this.quizIndex === this.quizzes.length - 1 &&
+      this.questionIndex === this.quizzes[this.quizIndex].questions.length - 1
+    );
+  }
+
   nextQuestion() {
     if (
       this.questionIndex <
@@ -49,7 +57,11 @@ export class QuestionsComponent implements OnInit {
     } else if (this.quizIndex < this.quizzes.length - 1) {
       this.quizIndex++;
       this.questionIndex = 0;
+    } else {
+     
+      this.quizFinished.emit();
     }
+
     this.resetQuestionState();
     this.saveProgress();
   }

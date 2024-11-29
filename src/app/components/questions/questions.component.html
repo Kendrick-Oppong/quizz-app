@@ -56,7 +56,11 @@
     } @if (answerSubmitted) {
     <!-- Next Question Button -->
     <button class="next-btn submit-btn" (click)="nextQuestion()">
-      Next Question
+       @if (isLastQuestion()) {
+        Submit Quiz
+      } @else {
+        Next Question
+      }
     </button>
     } @else {
     <!-- Submit Button -->
