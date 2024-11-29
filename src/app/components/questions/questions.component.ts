@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Quiz } from '../../interfaces/quiz';
 
 @Component({
@@ -7,7 +7,7 @@ import { Quiz } from '../../interfaces/quiz';
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.css'],
 })
-export class QuestionsComponent {
+export class QuestionsComponent implements OnInit {
   @Input() quizzes: Quiz[] = [];
   quizIndex = 0;
   questionIndex = 0;
@@ -15,6 +15,10 @@ export class QuestionsComponent {
   answerSubmitted = false;
   isCorrect: boolean | null = null;
   showErrorMessage = false;
+
+  ngOnInit() {
+    this.loadQuizProgress();
+  }
 
   currentQuizQuestion() {
     return this.quizzes[this.quizIndex].questions[this.questionIndex];
@@ -26,6 +30,7 @@ export class QuestionsComponent {
       this.isCorrect =
         this.selectedAnswer === this.currentQuizQuestion().answer;
       this.showErrorMessage = false;
+      this.saveQuizProgress();
     } else {
       this.showErrorMessage = true;
     }
@@ -39,10 +44,11 @@ export class QuestionsComponent {
       this.questionIndex++;
     } else if (this.quizIndex < this.quizzes.length - 1) {
       this.quizIndex++;
-      this.questionIndex = 0; 
+      this.questionIndex = 0;
     }
 
     this.resetQuestionState();
+    this.saveQuizProgress();
   }
 
   selectAnswer(answer: string) {
@@ -61,5 +67,26 @@ export class QuestionsComponent {
     this.selectedAnswer = null;
     this.isCorrect = null;
     this.showErrorMessage = false;
+  }
+
+  private saveQuizProgress() {
+    const quizState = {
+      quizIndex: this.quizIndex,
+      questionIndex: this.questionIndex,
+      selectedAnswer: this.selectedAnswer,
+      answerSubmitted: this.answerSubmitted,
+    };
+    localStorage.setItem('quizState', JSON.stringify(quizState));
+  }
+
+  private loadQuizProgress() {
+    const savedState = localStorage.getItem('quizState');
+    if (savedState) {
+      const quizState = JSON.parse(savedState);
+      this.quizIndex = quizState.quizIndex || 0;
+      this.questionIndex = quizState.questionIndex || 0;
+      this.selectedAnswer = quizState.selectedAnswer || null;
+      this.answerSubmitted = quizState.answerSubmitted || false;
+    }
   }
 }
