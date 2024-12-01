@@ -2,14 +2,27 @@ h1 {
   font-weight: 100;
 }
 
-p {
-  margin-top: 2rem; 
-  color: var(--grey-navy);
-  font-style: italic;
-  font-size: 1.25rem; 
+body.dark-theme .aside-container {
+  color: var(--pure-white);
 }
 
-span {
+p {
+  margin-top: 2rem;
+  color: var(--grey-navy);
+  font-style: italic;
+  font-size: 1.25rem;
+}
+
+body.dark-theme .aside-container p {
+  color: var(--light-bluish);
+}
+
+body.dark-theme span {
+  color: var(--pure-white);
+
+}
+
+ span {
   color: var(--dark-navy);
   font-weight: 500;
 }
@@ -24,16 +37,25 @@ ul div {
   gap: 2rem;
   width: 100%;
   background-color: var(--pure-white);
-  padding: 1.25rem; 
-  border-radius: 1.5rem; 
+  padding: 1.25rem;
+  border-radius: 1.5rem;
   cursor: pointer;
 }
 
+
+
 ul div:not(:first-of-type) {
-  margin-top: 1.5rem; 
+  margin-top: 1.5rem;
 }
 
 ul h3 {
   font-weight: 500;
   font-size: 1.75rem;
 }
+
+
+body.dark-theme ul div {
+  background-color: var(--navy);
+  color: var(--pure-white);
+}
+

@@ -16,19 +16,32 @@ section {
   margin-block: 3rem;
 }
 
-
 section div {
   text-align: center;
   width: 100%;
   margin-inline: auto;
   background-color: var(--pure-white);
   padding: 48px;
+  padding-top: 20px;
   border-radius: 24px;
 }
 
+body.dark-theme .correct-score {
+  color: var(--pure-white);
+}
+
+body.dark-theme .quiz-length {
+  color: var(--light-bluish);
+}
+
+body.dark-theme section div {
+  background-color: var(--navy);
+}
+
 section .category-title {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  padding-bottom: 0;
+  justify-content: center;
 }
 
 section h1 {
@@ -42,7 +55,7 @@ button {
 }
 
 @media screen and (min-width: 992px) {
- section {
+  section {
     max-width: 80%;
     margin-block: auto;
   }

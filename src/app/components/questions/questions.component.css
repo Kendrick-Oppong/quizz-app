@@ -150,3 +150,24 @@ ul p {
   align-items: center;
   gap: 1rem;
 }
+
+body.dark-theme .question-number {
+  color: var(--light-bluish);
+}
+
+
+body.dark-theme .aside-container {
+  color: var(--pure-white);
+}
+
+body.dark-theme .progress-bar-container {
+  background-color: var(--navy);
+}
+
+
+
+body.dark-theme ul div {
+  background-color: var(--navy);
+  color: var(--pure-white);
+}
+

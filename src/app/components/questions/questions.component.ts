@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { Quiz } from '../../interfaces/quiz';
 
 @Component({
@@ -6,6 +6,7 @@ import { Quiz } from '../../interfaces/quiz';
   standalone: true,
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class QuestionsComponent implements OnInit {
   @Input() quizzes: Quiz[] = [];
@@ -42,7 +43,6 @@ export class QuestionsComponent implements OnInit {
       this.answerSubmitted = true;
       this.showErrorMessage = false;
 
-      
       this.saveAnswer();
     } else {
       this.showErrorMessage = true;
@@ -105,7 +105,6 @@ export class QuestionsComponent implements OnInit {
       this.quizIndex = progress.quizIndex || 0;
       this.questionIndex = progress.questionIndex || 0;
 
-     
       this.loadAnswer();
     }
   }

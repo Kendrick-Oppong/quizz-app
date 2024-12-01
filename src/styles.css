@@ -101,6 +101,26 @@ body {
   z-index: 1;
 }
 
+body.dark-theme {
+  background-color: var(--dark-navy);
+  transition: background-color 0.4s ease-in-out;
+}
+
+body.dark-theme .category-title-container h3 {
+  color: var(--pure-white);
+}
+
+body.dark-theme .aside-container {
+  color: var(--pure-white);
+}
+
+body.dark-theme span {
+  color: var(--pure-white);
+}
+
+
+
+
 main {
   margin-inline: 1.5rem;
   margin-bottom: 2rem;
@@ -133,7 +153,6 @@ main {
 .submit-btn:hover {
   background-color: var(--btn-light-purple);
 }
-
 
 h1 {
   font-size: 2.5rem;

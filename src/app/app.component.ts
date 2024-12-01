@@ -20,6 +20,7 @@ import { CategoryIconComponent } from './components/category-icon/category-icon.
 })
 export class AppComponent implements OnInit {
   selectedCategory = '';
+  isDarkMode = false;
   quizzes: Quiz[] = [];
   filteredCategoryQuizzes: Quiz[] = [];
   showScoreComponent = false;
@@ -29,6 +30,25 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.quizzes = this.quizService.getQuizzes();
     this.loadCategoryAndProgress();
+
+    const savedTheme = localStorage.getItem('theme');
+    this.isDarkMode = savedTheme === 'dark';
+    this.applyTheme(this.isDarkMode);
+  }
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    this.applyTheme(this.isDarkMode);
+
+    localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
+  }
+
+  applyTheme(isDark: boolean) {
+    if (isDark) {
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.remove('dark-theme');
+    }
   }
 
   onCategorySelect(categoryTitle: string): void {

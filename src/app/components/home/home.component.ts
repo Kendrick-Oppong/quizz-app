@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +6,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
   imports: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
+  encapsulation: ViewEncapsulation.None,
 })
+  
 export class HomeComponent {
   @Output() categorySelected = new EventEmitter<string>();
 

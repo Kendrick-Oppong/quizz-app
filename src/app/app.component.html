@@ -3,14 +3,18 @@
   <app-category-icon [selectedCategory]="selectedCategory" />
 
   <div class="toggle">
-    <img src="/sun.svg" alt="sun" />
+    <img [src]="isDarkMode ? '/sun-dark.svg' : 'sun.svg'" alt="sun" />
     <div>
       <label class="switch">
-        <input type="checkbox" />
+        <input
+          type="checkbox"
+          [checked]="isDarkMode"
+          (change)="toggleTheme()"
+        />
         <span class="slider"></span>
       </label>
     </div>
-    <img src="/moon.svg" alt="moon" />
+    <img [src]="isDarkMode ? '/moon-dark.svg' : 'moon.svg'" alt="moon" />
   </div>
 </header>
 
@@ -19,21 +23,34 @@
   <div>
     <img
       class="ellipse-white-1"
-      src="/assets/images/Ellipse-white-1.svg"
+      [src]="
+        isDarkMode
+          ? '/assets/images/Ellipse-dark-1.svg'
+          : '/assets/images/Ellipse-white-1.svg'
+      "
       alt=""
     />
   </div>
   <div>
     <img
       class="ellipse-white-2"
-      src="/assets/images/Ellipse-white-2.svg"
+      [src]="
+        isDarkMode
+          ? '/assets/images/Ellipse-dark-2.svg'
+          : '/assets/images/Ellipse-white-2.svg'
+      "
       alt=""
     />
   </div>
 
   <!-- quiz component -->
-  @if (showScoreComponent) { <app-score [selectedCategory]="selectedCategory"  [correctAnswersCount]="correctAnswersCount" [quizzes]="quizzes" (quizReset)="onQuizReset()"/>}@else { @switch (selectedCategory) {
-  @case("HTML"){
+  @if (showScoreComponent) {
+  <app-score
+    [selectedCategory]="selectedCategory"
+    [correctAnswersCount]="correctAnswersCount"
+    [quizzes]="quizzes"
+    (quizReset)="onQuizReset()"
+  />}@else { @switch (selectedCategory) { @case("HTML"){
   <app-questions
     [quizzes]="filteredCategoryQuizzes"
     (quizFinished)="onQuizFinished($event)"
