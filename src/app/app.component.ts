@@ -69,8 +69,7 @@ export class AppComponent implements OnInit {
     this.correctAnswersCount = 0;
     this.selectedCategory = '';
     this.showScoreComponent = false;
-    localStorage.removeItem('quizProgress');
-    localStorage.removeItem('appState');
+    localStorage.clear();
   }
 
   private saveCategoryAndProgress(): void {

@@ -8,6 +8,7 @@ import { Quiz } from '../../interfaces/quiz';
   styleUrls: ['./questions.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
+  
 export class QuestionsComponent implements OnInit {
   @Input() quizzes: Quiz[] = [];
   @Output() quizFinished = new EventEmitter<number>();

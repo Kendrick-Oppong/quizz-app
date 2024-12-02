@@ -1,6 +1,6 @@
 .question-title {
   font-weight: 500;
-  font-size: 2.25rem;
+  font-size: 2rem !important;
 }
 
 .question-number {
@@ -52,7 +52,7 @@ div:not(:first-of-type) {
 
 ul h3 {
   font-weight: 500;
-  font-size: 1.75rem;
+  font-size: 1.1rem;
 }
 
 ul div:hover p {
@@ -65,20 +65,20 @@ ul p {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 56px;
-  width: 56px;
+  height: 46px;
+  width: 46px;
   margin-top: 0;
   border-radius: 8px;
   background-color: var(--light-grey);
   font-weight: 500;
-  font-size: 1.75rem;
+  font-size: 1rem;
 }
 
 .submit-btn {
   margin-top: 1.5rem;
   height: 92px;
   justify-content: center;
-  font-size: 1.75rem;
+  font-size: 1.1rem;
   font-weight: 500;
   padding: 1.25rem;
   cursor: pointer;
@@ -89,7 +89,6 @@ ul p {
 .submit-btn:hover {
   background-color: var(--btn-light-purple);
 }
-
 
 .selected {
   border: 4px solid var(--purple);
@@ -127,13 +126,11 @@ ul p {
   color: var(--pure-white) !important;
 }
 
-
 .checkmark {
   color: var(--green);
   font-size: 1.5rem;
   margin-left: auto;
 }
-
 
 .crossmark {
   color: var(--red);
@@ -155,7 +152,6 @@ body.dark-theme .question-number {
   color: var(--light-bluish);
 }
 
-
 body.dark-theme .aside-container {
   color: var(--pure-white);
 }
@@ -164,10 +160,7 @@ body.dark-theme .progress-bar-container {
   background-color: var(--navy);
 }
 
-
-
 body.dark-theme ul div {
   background-color: var(--navy);
   color: var(--pure-white);
 }
-
